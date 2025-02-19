@@ -1,573 +1,311 @@
-/* 🌟 General Styling */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-    scroll-behavior: smooth; /* Smooth scrolling */
-}
-body {
-    background-color: #0A192F;
-    color: #F9F9F9;
+    scroll-behavior: smooth;
 }
 
-/* 🏠 Header */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    padding-top: 80px;
+}
+
+/* Header */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    background: #112D4E;
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
+    background: rgba(30, 58, 138, 0.95);
+    padding: 15px 0;
+    text-align: center;
     z-index: 1000;
-    transition: background 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-.logo img {
-    height: 40px;
-    animation: floating 3s infinite ease-in-out; /* Floating effect */
+
+h1 {
+    font-size: 28px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
+
+/* Navigation */
 nav ul {
     list-style: none;
     display: flex;
+    justify-content: center;
     gap: 20px;
 }
+
+nav ul li {
+    display: inline-block;
+}
+
 nav ul li a {
+    color: white;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 8px;
     text-decoration: none;
-    color: #F9F9F9;
-    font-size: 16px;
-    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+    transition: 0.3s;
 }
+
 nav ul li a:hover {
-    color: #00A8E8;
-    text-shadow: 0 0 8px #00A8E8; /* Glowing effect */
+    background: rgba(255, 255, 255, 0.2);
 }
 
-/* 📷 Hero Section */
+/* Hero Section - Glassmorphism */
 .hero {
-    text-align: center;
-    background: url('images/hero.jpg') center/cover no-repeat;
-    padding: 100px 20px;
+    background: url('images/bg.jpg') no-repeat center center/cover;
     color: white;
-    opacity: 0;
-    transform: translateY(-20px);
-    animation: fadeIn 1s ease-in-out forwards;
-}
-.cta-button {
-    background: #00A8E8;
-    color: white;
-    padding: 12px 24px;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-.cta-button:hover {
-    background: #007B9E;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #00A8E8; /* Glowing effect */
-}
-.cta-button:active {
-    transform: scale(0.95); /* Click effect */
-}
-
-/* 📌 Introduction Section */
-.introduction {
-    padding: 50px 20px;
     text-align: center;
-    background: #112D4E;
-    opacity: 0;
-    transform: translateX(-50px);
-    animation: slideIn 1s ease-in-out forwards 0.5s;
-}
-.intro-content {
+    padding: 140px 20px;
+    margin-top: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-}
-.intro-text {
-    max-width: 400px;
-}
-.intro-content img {
-    width: 250px;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-.intro-content img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #00A8E8;
 }
 
-/* 🎯 Services Section */
-.services {
+.hero .container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero h2 {
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+/* Event Schedule */
+#schedule {
     text-align: center;
     padding: 50px 20px;
-    background: #0A192F;
+    background: #fff;
+    color: #333;
+    border-radius: 10px;
+    margin: 30px auto;
+    max-width: 800px;
 }
-.service-grid {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
+
+.timeline {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
-.service-box {
-    width: 30%;
+
+.timeline li {
+    padding: 12px 0;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 2px solid #2575fc;
+    transition: 0.3s;
+}
+
+.timeline li:last-child {
+    border-bottom: none;
+}
+
+.timeline li:hover {
+    background: rgba(37, 117, 252, 0.2);
+}
+
+/* Performances Section */
+#performances {
     text-align: center;
-    background: #112D4E;
-    padding: 15px;
-    border-radius: 10px;
-    opacity: 0;
-    transform: scale(0.8);
-    animation: fadeIn 1s ease-in-out forwards 1s;
+    padding: 50px 20px;
 }
-.service-box img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+.performances {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
-.service-box img:hover {
-    transform: rotate(5deg) scale(1.1);
-    box-shadow: 0 0 15px #00A8E8;
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 12px;
+    width: 260px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-.service-box p {
-    color: #00A8E8;
+
+.card:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.card h3 {
+    font-size: 20px;
+}
+
+.card p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Countdown */
+#countdown {
+    font-size: 22px;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    border-radius: 8px;
     font-weight: bold;
 }
 
-/* 💬 Testimonials */
-.testimonials {
+/* Performance Details */
+#performance-details {
+    padding: 40px 0;
     text-align: center;
-    padding: 50px 20px;
-    background: #112D4E;
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fadeIn 1s ease-in-out forwards 1.5s;
+    background: #fff;
+    color: #333;
+    margin-top: 40px;
+    border-radius: 10px;
 }
 
-/* 📧 Newsletter */
-.extras {
-    text-align: center;
-    padding: 50px;
-    background: #00A8E8;
-    color: white;
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fadeIn 1s ease-in-out forwards 2s;
+#performance-title {
+    font-size: 26px;
 }
-.extras input {
-    padding: 10px;
-    width: 250px;
+
+#performance-list {
+    list-style: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Comment Section */
+.comment-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.comment-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.comment-box textarea {
+    width: 100%;
+    padding: 12px;
     border: none;
     border-radius: 5px;
+    font-size: 16px;
 }
-.extras button {
-    background: #112D4E;
+
+.comment-box button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: #2563EB;
     color: white;
-    padding: 10px 20px;
     border: none;
-    font-size: 18px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-.extras button:hover {
-    box-shadow: 0 0 15px white;
-    transform: scale(1.1);
-}
-.extras button:active {
-    transform: scale(0.95);
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: 0.3s;
 }
 
-/* 📌 Footer */
-footer {
-    background: #112D4E;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards 2.5s;
-}
-.footer-links {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 50px;
-}
-.footer-links a {
-    text-decoration: none;
-    color: #00A8E8;
+.comment-box button:hover {
+    background: #1E3A8A;
 }
 
-/* 🎬 Keyframe Animations */
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
     }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .hero {
+        padding: 100px 15px;
+    }
+
+    .performances {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
+/* Smooth Fade-In */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Slide-In Effect */
+.slide-in {
+    transform: translateX(-100px);
+    opacity: 0;
+    animation: slideIn 0.8s forwards;
 }
 
 @keyframes slideIn {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
     to {
-        opacity: 1;
         transform: translateX(0);
+        opacity: 1;
     }
 }
 
-@keyframes floating {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0px); }
+/* Glowing Countdown Timer */
+#countdown.glow {
+    animation: glowEffect 1.5s infinite alternate;
 }
 
-/* 📱 Responsive Design */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 28px;
-    }
-    .hero p {
-        font-size: 16px;
-    }
-    .hero .cta-button {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-    .intro-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    .service-box {
-        width: 100%;
-    }
-    .footer-links {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-/* Fix icon visibility and size */
-.service-box img {
-    width: 40px;  /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
-    display: block;
-    margin: 0 auto; /* Center icon */
-    filter: brightness(1.2); /* Increase visibility on dark background */
+@keyframes glowEffect {
+    from { text-shadow: 0 0 10px #ffd700; }
+    to { text-shadow: 0 0 20px #ff5733; }
 }
 
-/* Add a glow effect on hover */
-.service-box img:hover {
-    filter: drop-shadow(0px 0px 10px #00A8E8);
-    transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
-}
-/* 🌟 Hero Section */
-.hero {
-    position: relative;
-    height: 100vh; /* Full screen */
-    background: url('images/hero-bg.jpg') center/cover no-repeat; /* Background Image */
+/* Bounce Effect for Comments */
+li {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-}
-
-/* Dark Overlay for Better Readability */
-.hero-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 25, 47, 0.7); /* Semi-transparent dark overlay */
-}
-
-/* Hero Content */
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
-    padding: 20px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease-in-out forwards;
-}
-
-/* Headline */
-.hero h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-shadow: 0px 0px 10px rgba(0, 168, 232, 0.5);
-}
-
-/* Subtitle */
-.hero p {
-    font-size: 1.2rem;
-    margin: 15px 0;
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in-out forwards 0.5s;
-}
-
-/* CTA Button */
-.cta-button {
-    display: inline-block;
-    padding: 12px 25px;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    background: #00A8E8;
-    border: none;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
-    text-decoration: none;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-top: 5px;
+    animation: bounceIn 0.5s ease-in-out;
 }
 
-/* Hover & Click Effects */
-.cta-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #00A8E8;
-}
-.cta-button:active {
-    transform: scale(0.95);
-}
-
-/* Floating Animation for Background */
-@keyframes floatBg {
-    0% { background-position: 50% 50%; }
-    50% { background-position: 55% 45%; }
-    100% { background-position: 50% 50%; }
-}
-
-/* Fade-in Effect */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .hero p {
-        font-size: 1rem;
-    }
-    .cta-button {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-}
-/* 🌟 Hero Section */
-.hero {
-    position: relative;
-    height: 100vh; /* Full-screen height */
-    background: url('images/hero-bg.jpg') center/cover no-repeat fixed; /* Background Image */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-}
-
-/* Semi-Transparent Overlay */
-.hero-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 25, 47, 0.6); /* 60% Transparent Dark Overlay */
-}
-
-/* Hero Content */
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
-    padding: 20px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease-in-out forwards;
-}
-
-/* Headline */
-.hero h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-shadow: 0px 0px 10px rgba(0, 168, 232, 0.5);
-}
-
-/* Subtitle */
-.hero p {
-    font-size: 1.2rem;
-    margin: 15px 0;
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in-out forwards 0.5s;
-}
-
-/* CTA Button */
-.cta-button {
-    display: inline-block;
-    padding: 12px 25px;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    background: #00A8E8;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-/* Hover & Click Effects */
-.cta-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #00A8E8;
-}
-.cta-button:active {
-    transform: scale(0.95);
-}
-
-/* Fade-in Effect */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .hero p {
-        font-size: 1rem;
-    }
-    .cta-button {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-}
-/* 🌟 Hero Section */
-.hero {
-    position: relative;
-    height: 100vh; /* Full-screen height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-}
-
-/* 🎥 Full-Screen Video */
-#heroVideo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures full cover without distortion */
-    z-index: -1;
-}
-
-/* Semi-Transparent Overlay */
-.hero-overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 25, 47, 0.6); /* 60% transparent dark overlay */
-    z-index: 0;
-}
-
-/* Hero Content */
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
-    padding: 20px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease-in-out forwards;
-}
-
-/* Headline */
-.hero h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-shadow: 0px 0px 10px rgba(0, 168, 232, 0.5);
-}
-
-/* Subtitle */
-.hero p {
-    font-size: 1.2rem;
-    margin: 15px 0;
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in-out forwards 0.5s;
-}
-
-/* CTA Button */
-.cta-button {
-    display: inline-block;
-    padding: 12px 25px;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    background: #00A8E8;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-/* Hover & Click Effects */
-.cta-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #00A8E8;
-}
-.cta-button:active {
-    transform: scale(0.95);
-}
-
-/* Fade-in Effect */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-/* 📱 Responsive Design */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .hero p {
-        font-size: 1rem;
-    }
-    .cta-button {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
+@keyframes bounceIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
