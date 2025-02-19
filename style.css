@@ -309,3 +309,248 @@ li {
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+/* About Section */
+#about {
+    padding: 60px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #4B0082, #8A2BE2);
+    color: white;
+    border-radius: 15px;
+    margin: 40px auto;
+    max-width: 900px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#about h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+#about p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: auto;
+    opacity: 0.9;
+}
+
+/* About Cards */
+.about-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.about-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+}
+
+.about-card i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #FFD700;
+}
+
+.about-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.about-card p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Highlighted Event Details */
+.highlight {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .about-card {
+        width: 90%;
+    }
+}
+/* About Me Section */
+#about-me {
+    padding: 60px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #1E3A8A, #4B0082);
+    color: white;
+    border-radius: 15px;
+    margin: 40px auto;
+    max-width: 900px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards;
+}
+
+#about-me h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeIn 1s 0.5s forwards;
+}
+
+#about-me p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: auto;
+    opacity: 0.9;
+    opacity: 0;
+    animation: fadeIn 1s 0.7s forwards;
+}
+
+/* About Me Cards */
+.about-me-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.about-me-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    animation: fadeInUp 1s 1s forwards;
+}
+
+.about-me-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+}
+
+.about-me-card i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #FFD700;
+}
+
+.about-me-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.about-me-card p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Personal Note */
+.personal-note {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    opacity: 0;
+    animation: fadeIn 1s 1.2s forwards;
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-me-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-me-card {
+        width: 90%;
+    }
+}
+/* Disable Text Selection & Copy */
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Prevent Right-Click */
+body {
+    pointer-events: none;
+}
+body {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+body {
+    pointer-events: auto;
+}
