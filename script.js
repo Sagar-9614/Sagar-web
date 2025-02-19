@@ -158,3 +158,211 @@ document.addEventListener("DOMContentLoaded", () => {
     startCountdown();
     loadComments();
 });
+document.addEventListener("keydown", function (event) {
+    if (
+        event.key === "PrintScreen" || 
+        event.ctrlKey && (event.key === "p" || event.key === "s" || event.key === "u") ||
+        event.metaKey && (event.key === "p" || event.key === "s" || event.key === "u")
+    ) {
+        event.preventDefault();
+        alert("📸 Screenshot and copying are disabled on this website.");
+    }
+});
+
+/* Prevent PrintScreen Key */
+document.addEventListener("keyup", function (event) {
+    if (event.key === "PrintScreen") {
+        alert("📸 Screenshot is disabled!");
+    }
+});
+
+/* Disable Right-Click */
+document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+    alert("🚫 Right-click is disabled.");
+});
+// Show Popup on Page Load
+window.onload = function () {
+    showPopup();
+};
+
+// Function to Create and Show Popup with Password
+function showPopup() {
+    // Prevent Scrolling
+    document.body.style.overflow = "hidden"; 
+
+    // Create Overlay
+    let overlay = document.createElement("div");
+    overlay.id = "overlay";
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.background = "rgba(0, 0, 0, 0.5)";
+    overlay.style.display = "flex";
+    overlay.style.justifyContent = "center";
+    overlay.style.alignItems = "center";
+    overlay.style.zIndex = "1000";
+
+    // Create Popup Content
+    let popupContent = document.createElement("div");
+    popupContent.style.background = "white";
+    popupContent.style.padding = "25px";
+    popupContent.style.borderRadius = "12px";
+    popupContent.style.textAlign = "center";
+    popupContent.style.width = "320px";
+    popupContent.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.3)";
+    popupContent.style.opacity = "0";
+    popupContent.style.transform = "scale(0.8)";
+    popupContent.style.transition = "opacity 0.5s, transform 0.5s";
+
+    // Add Content to Popup
+    popupContent.innerHTML = `
+        <div style="font-size: 40px; margin-bottom: 10px;">🔒</div>
+        <h2 style="font-size: 22px; margin-bottom: 10px;">Enter Password</h2>
+        <p style="font-size: 16px; margin-bottom: 15px; color: #444;">Please enter the correct password to proceed.</p>
+        <input type="password" id="passwordInput" placeholder="Enter Password" 
+            style="width: 90%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; text-align: center;">
+        <p id="errorMessage" style="color: red; font-size: 14px; display: none;">❌ Incorrect password</p>
+        <button id="checkPassword" style="
+            width: 100%; 
+            padding: 12px; 
+            background: #2563EB; 
+            color: white; 
+            font-size: 16px;
+            font-weight: bold;
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer;
+            transition: background 0.3s;">
+            Submit
+        </button>
+    `;
+
+    // Append Popup Content to Overlay
+    overlay.appendChild(popupContent);
+    document.body.appendChild(overlay);
+
+    // Allow Interactions
+    popupContent.style.pointerEvents = "auto";
+    
+    // Fade-in Animation
+    setTimeout(() => {
+        popupContent.style.opacity = "1";
+        popupContent.style.transform = "scale(1)";
+    }, 100);
+
+    // Add Click Event to Button
+    document.getElementById("checkPassword").addEventListener("click", function () {
+        let inputPassword = document.getElementById("passwordInput").value;
+        let correctPassword = generatePassword();
+
+        // Check if Master Password is Already Used
+        let masterUsed = localStorage.getItem("masterUsed");
+
+        if (inputPassword === "sagar" && !masterUsed) {
+            // Master Password Works, But Only Once
+            localStorage.setItem("masterUsed", "true");
+            closePopup();
+        } else if (inputPassword === "sagar" && masterUsed) {
+            document.getElementById("errorMessage").innerText = "❌ Master password has already been used!";
+            document.getElementById("errorMessage").style.display = "block";
+        } else if (inputPassword === correctPassword) {
+            // Dynamic Password Works Normally
+            closePopup();
+        } else {
+            document.getElementById("errorMessage").innerText = "❌ Incorrect password";
+            document.getElementById("errorMessage").style.display = "block";
+        }
+    });
+
+    // Allow Enter Key to Submit Password
+    document.getElementById("passwordInput").addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            document.getElementById("checkPassword").click();
+        }
+    });
+}
+
+// Function to Generate Dynamic Password (Format: YYYYMMDDHHMM)
+function generatePassword() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hour = String(now.getHours()).padStart(2, '0');
+    const minute = String(now.getMinutes()).padStart(2, '0'); // Added Minutes
+
+    return `${year}${month}${day}${hour}${minute}`; // Example: 202502191423 (Feb 19, 2025, 14:23)
+}
+
+// Function to Close Popup
+function closePopup() {
+    let overlay = document.getElementById("overlay");
+    if (overlay) {
+        overlay.style.opacity = "0";
+        setTimeout(() => {
+            overlay.remove();
+            document.body.style.overflow = "auto"; // Restore scrolling
+        }, 300);
+    }
+}
+document.addEventListener("contextmenu", (e) => e.preventDefault());
+document.addEventListener("keydown", (e) => {
+    if (e.ctrlKey && (e.key === "u" || e.key === "s")) e.preventDefault();
+});
+// Function to Show Performance Details
+function showPerformance(type) {
+    const title = document.getElementById("performance-title");
+    const list = document.getElementById("performance-list");
+
+    // Clear previous content
+    list.innerHTML = "";
+    title.innerHTML = "✨ Loading..."; 
+    list.classList.remove("fade-in");
+
+    setTimeout(() => {
+        let performances = {
+            "dance": {
+                title: "🩰 Dance Performances",
+                details: [
+                    { name: "Sayan", type: "Solo Dance", duration: "5 min", song: "Nagada Sang Dhol" },
+                    { name: "Hritika", type: "Classical Dance", duration: "2 min", song: "Mohe Rang Do Laal" },
+                    { name: "Group Dance", type: "Group Performance", duration: "20 min", song: "Ghoomar" }
+                ]
+            },
+            "poetry": {
+                title: "📜 Poetry Performances",
+                details: [
+                    { name: "Anushree", type: "Classical Poetry", duration: "10 min", poem: "The Road Not Taken" },
+                    { name: "Gourov", type: "Intern Performance", duration: "5 min", poem: "Where The Mind Is Without Fear" },
+                    { name: "Bhumika Mandal", type: "Special Recital", duration: "5 min", poem: "Invictus" }
+                ]
+            },
+            "songs": {
+                title: "🎶 Song Performances",
+                details: [
+                    { name: "Puskar Roy", type: "Solo Singing", duration: "20 min", song: "Kesariya" },
+                    { name: "Asif Rahaman", type: "Light Music", duration: "6 min", song: "Perfect" },
+                    { name: "Group Song", type: "Group Singing", duration: "25 min", song: "We Don't Talk Anymore" }
+                ]
+            }
+        };
+
+        if (performances[type]) {
+            title.innerHTML = performances[type].title;
+            list.innerHTML = performances[type].details.map(performance => `
+                <li class="slide-in">
+                    <strong>${performance.name}</strong> - ${performance.type} (${performance.duration}) 
+                    ${performance.song ? `(Song: "${performance.song}")` : `(Poem: "${performance.poem}")`}
+                </li>
+            `).join("");
+        } else {
+            title.innerHTML = "❌ No Performances Found";
+            list.innerHTML = "<li>No details available.</li>";
+        }
+
+        list.classList.add("fade-in"); // Add animation
+    }, 300); 
+}
