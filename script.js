@@ -266,7 +266,7 @@ function showPopup() {
             localStorage.setItem("masterUsed", "true");
             closePopup();
         } else if (inputPassword === "sagar" && masterUsed) {
-            document.getElementById("errorMessage").innerText = "❌ Master password has already been used!";
+            document.getElementById("errorMessage").innerText = "😁this password is one time so you do not enter again!(Tell me to enter here)";
             document.getElementById("errorMessage").style.display = "block";
         } else if (inputPassword === correctPassword) {
             // Dynamic Password Works Normally
