@@ -253,49 +253,6 @@ function showPopup() {
         popupContent.style.transform = "scale(1)";
     }, 100);
 
-    // Add Click Event to Button
-    document.getElementById("checkPassword").addEventListener("click", function () {
-        let inputPassword = document.getElementById("passwordInput").value;
-        let correctPassword = generatePassword();
-
-        // Check if Master Password is Already Used
-        let masterUsed = localStorage.getItem("masterUsed");
-
-        if (inputPassword === "sagar" && !masterUsed) {
-            // Master Password Works, But Only Once
-            localStorage.setItem("masterUsed", "true");
-            closePopup();
-        } else if (inputPassword === "sagar" && masterUsed) {
-            document.getElementById("errorMessage").innerText = "😁this password is one time so you do not enter again!(Tell me to enter here)";
-            document.getElementById("errorMessage").style.display = "block";
-        } else if (inputPassword === correctPassword) {
-            // Dynamic Password Works Normally
-            closePopup();
-        } else {
-            document.getElementById("errorMessage").innerText = "❌ Incorrect password";
-            document.getElementById("errorMessage").style.display = "block";
-        }
-    });
-
-    // Allow Enter Key to Submit Password
-    document.getElementById("passwordInput").addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-            document.getElementById("checkPassword").click();
-        }
-    });
-}
-
-// Function to Generate Dynamic Password (Format: YYYYMMDDHHMM)
-function generatePassword() {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    const hour = String(now.getHours()).padStart(2, '0');
-    const minute = String(now.getMinutes()).padStart(2, '0'); // Added Minutes
-
-    return `${year}${month}${day}${hour}${minute}`; // Example: 202502191423 (Feb 19, 2025, 14:23)
-}
 
 // Function to Close Popup
 function closePopup() {
