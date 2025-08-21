@@ -3,840 +3,1298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sagar Paul - Future DMLT Professional & Innovator</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>Sagar Paul - Enhanced Portfolio v3.0 | Future DMLT Professional</title>
+    
+    <!-- External Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --font-primary: 'Inter', sans-serif;
-            --font-display: 'Playfair Display', serif;
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             
-            /* Reverting to the preferred Emerald Green Palette */
-            --bg-color: #f9fbfc; 
-            --text-color: #2c3e50; 
-            --primary-color: #16a085; 
-            --secondary-color: #7f8c8d; 
-            --accent-color: #1abc9c; 
-            --card-bg: #ffffff;
-            --border-color: #e0e6e8;
-            --highlight-bg: rgba(22, 160, 133, 0.05);
-
-            --bg-color-dark: #222f3e;
-            --text-color-dark: #ecf0f1;
-            --primary-color-dark: #48c9b0;
-            --secondary-color-dark: #bdc3c7; 
-            --accent-color-dark: #1dd2af; 
-            --card-bg-dark: #2c3a47; 
-            --border-color-dark: #4a5b68;
-            --highlight-bg-dark: rgba(72, 201, 176, 0.07);
-
-            --shadow-soft: 0 5px 15px rgba(0,0,0,0.05);
-            --shadow-medium: 0 8px 25px rgba(0,0,0,0.07);
-            --border-radius: 8px;
-            --transition-speed: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --primary-color: #667eea;
+            --secondary-color: #f093fb;
+            --accent-color: #4facfe;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --bg-light: #f7fafc;
+            --bg-white: #ffffff;
+            
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            --animation-duration: 0.3s;
+            --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        html.dark-theme {
-            --bg-color: var(--bg-color-dark);
-            --text-color: var(--text-color-dark);
-            --primary-color: var(--primary-color-dark);
-            --secondary-color: var(--secondary-color-dark);
-            --accent-color: var(--accent-color-dark);
-            --card-bg: var(--card-bg-dark);
-            --border-color: var(--border-color-dark);
-            --highlight-bg: var(--highlight-bg-dark);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-size: 16px; }
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
         body {
-            font-family: var(--font-primary);
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.75; 
-            transition: background-color var(--transition-speed), color var(--transition-speed);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-light);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        .container { max-width: 1050px; margin: 0 auto; padding: 0 25px; }
 
-        .theme-switcher { position: fixed; bottom: 25px; right: 25px; z-index: 1001; }
-        #themeToggleBtn {
-            background-color: var(--card-bg); color: var(--secondary-color);
-            border: 1px solid var(--border-color); border-radius: 50%;
-            width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 1.1rem; box-shadow: var(--shadow-soft);
-            transition: all var(--transition-speed);
+        /* Particle Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
         }
-        #themeToggleBtn:hover { color: var(--primary-color); transform: translateY(-2px) scale(1.05); box-shadow: var(--shadow-medium); }
 
-        header {
-            background-color: rgba(255,255,255,0.8); 
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            padding: 0.9rem 0; position: fixed; top: 0; left: 0; width: 100%;
-            z-index: 1000; border-bottom: 1px solid var(--border-color);
-            transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow 0.3s ease;
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            z-index: 1000;
+            transition: left var(--animation-duration) var(--animation-timing);
+            box-shadow: var(--shadow-xl);
         }
-        html.dark-theme header { background-color: rgba(34, 47, 62, 0.8); }
-        header.scrolled { box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
 
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; color: var(--primary-color); text-decoration: none; letter-spacing: -0.5px; }
-        
-        nav ul { list-style: none; display: flex; }
-        nav ul li { margin-left: 2rem; }
-        nav ul li a {
-            text-decoration: none; color: var(--text-color); font-weight: 500;
-            font-size: 0.95rem; transition: color var(--transition-speed);
-            padding: 0.3rem 0.1rem; position: relative;
+        .sidebar.active {
+            left: 0;
         }
-        nav ul li a::after {
-            content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 2px;
-            background-color: var(--accent-color); transition: width var(--transition-speed);
-            border-radius: 2px;
-        }
-        nav ul li a:hover, nav ul li a.active { color: var(--primary-color); }
-        nav ul li a:hover::after, nav ul li a.active::after { width: 100%; }
-        .menu-toggle { display: none; background: none; border: none; color: var(--text-color); font-size: 1.5rem; cursor: pointer; }
 
-        section { padding: 80px 0; overflow: hidden;}
-        section:nth-child(odd) { background-color: var(--highlight-bg); }
-        
-        h1, h2, h3 { color: var(--text-color); margin-bottom: 1rem; }
-        h1 { font-family: var(--font-display); font-weight: 700; letter-spacing: -1px;}
-        h2 { 
-            font-family: var(--font-display); font-size: 2.8rem; 
-            text-align: center; margin-bottom: 3rem; position: relative; 
-            padding-bottom: 1rem; color: var(--primary-color);
-        }
-        h2::after {
-            content: ''; position: absolute; bottom: 0; left: 50%;
-            transform: translateX(-50%); width: 70px; height: 3px;
-            background-color: var(--accent-color); opacity: 0.6; border-radius: 2px;
-        }
-        h3 { font-family: var(--font-primary); font-weight: 600; font-size: 1.4rem; }
-        p { margin-bottom: 1.5rem; color: var(--secondary-color); font-size: 1.05rem; }
-        strong { font-weight: 600; color: var(--text-color); }
-
-        .btn {
-            display: inline-block; padding: 0.8rem 2rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
-            color: #fff; text-decoration: none; border-radius: var(--border-radius);
-            font-weight: 600; font-size: 0.95rem; transition: all var(--transition-speed);
-            border: none; box-shadow: 0 4px 15px rgba(22, 160, 133, 0.2);
-            letter-spacing: 0.5px;
-        }
-        .btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 6px 20px rgba(22, 160, 133, 0.3); }
-        .btn i { margin-right: 0.5rem; }
-
-        .fade-in-element {
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s var(--transition-speed), transform 0.8s var(--transition-speed);
+            visibility: hidden;
+            transition: all var(--animation-duration) var(--animation-timing);
         }
-        .fade-in-element.is-visible { opacity: 1; transform: translateY(0); }
-        
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Menu Toggle Button */
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all var(--animation-duration) var(--animation-timing);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary-gradient);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all var(--animation-duration) var(--animation-timing);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(180deg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 0;
+            transition: margin-left var(--animation-duration) var(--animation-timing);
+        }
+
+        /* Section Styling */
+        .section {
+            min-height: auto;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(240,242,247,0.9) 100%);
+        }
+
+        /* Hero Section */
         .hero-section {
-            display: flex; align-items: center; justify-content: center; text-align: center;
-            min-height: 100vh; padding-top: 70px; position: relative; overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
         }
-        .hero-content { max-width: 750px; position: relative; z-index: 1; }
-        .hero-image-container {
-            margin: 0 auto 1.5rem; width: 170px; height: 170px;
-            border-radius: 50%; overflow: hidden; border: 5px solid var(--card-bg);
-            box-shadow: 0 0 0 6px var(--primary-color), var(--shadow-medium);
-            transform: scale(0.9); opacity: 0; animation: heroImageAnim 1s var(--transition-speed) 0.5s forwards;
-        }
-        @keyframes heroImageAnim { to { transform: scale(1); opacity: 1; } }
-        .hero-image { width: 100%; height: 100%; object-fit: cover; }
-        .hero-greeting { 
-            font-size: 1.2rem; color: var(--secondary-color); margin-bottom: 0.2rem;
-            opacity: 0; animation: textFadeUp 0.8s var(--transition-speed) 0.7s forwards;
-        }
-        .hero-title {
-            font-size: 3.8rem; margin-bottom: 0.2rem; color: var(--text-color);
-            opacity: 0; transform: translateY(20px); animation: textFadeUp 0.8s var(--transition-speed) 0.8s forwards;
-        }
-        .hero-profession {
-            font-size: 1.6rem; color: var(--primary-color); margin-bottom: 1.2rem; font-weight: 500;
-            opacity: 0; transform: translateY(20px); animation: textFadeUp 0.8s var(--transition-speed) 1s forwards;
-        }
-        .hero-tagline {
-            font-size: 1.15rem; color: var(--secondary-color); margin-bottom: 2.5rem;
-            max-width: 600px; margin-left: auto; margin-right: auto;
-            opacity: 0; transform: translateY(20px); animation: textFadeUp 0.8s var(--transition-speed) 1.2s forwards;
-        }
-        .hero-section .btn { opacity: 0; transform: translateY(20px); animation: textFadeUp 0.8s var(--transition-speed) 1.4s forwards; }
-        @keyframes textFadeUp { to { opacity: 1; transform: translateY(0); } }
 
-        .social-links-hero { margin-top: 2rem; opacity: 0; animation: textFadeUp 0.8s var(--transition-speed) 1.6s forwards;}
-        .social-links-hero a { color: var(--secondary-color); font-size: 1.6rem; margin: 0 0.8rem; transition: color var(--transition-speed), transform 0.2s ease; }
-        .social-links-hero a:hover { color: var(--primary-color); transform: scale(1.1); }
-
-        .hero-section::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at bottom, var(--highlight-bg) 0%, transparent 70%);
-            opacity: 0.7; z-index: 0;
-        }
-        html.dark-theme .hero-section::before { background: radial-gradient(ellipse at bottom, var(--highlight-bg-dark) 0%, transparent 70%); }
-
-        .about-content { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
-        .about-text { text-align: left; max-width: 800px; margin: 0 auto; }
-        .about-text p { font-size: 1.1rem; line-height: 1.8; }
-        .about-text .btn { margin-top: 1rem; }
-        .subtle-tech-hint {
-            font-style: italic; color: var(--accent-color);
-            border-bottom: 1px dotted var(--accent-color); cursor: help;
-            transition: color 0.3s, border-bottom-color 0.3s;
-        }
-        .subtle-tech-hint:hover { color: var(--primary-color); border-bottom-color: var(--primary-color); }
-
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .skill-category {
-            background-color: var(--card-bg); padding: 2rem 1.8rem; border-radius: var(--border-radius);
-            box-shadow: var(--shadow-soft); border: 1px solid var(--border-color);
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-        }
-        .skill-category:hover { transform: translateY(-6px) scale(1.02); box-shadow: var(--shadow-medium); }
-        .skill-category h3 {
-            font-size: 1.35rem; color: var(--primary-color); margin-bottom: 1.2rem;
-            display: flex; align-items: center;
-        }
-        .skill-category h3 i { margin-right: 0.7rem; font-size: 1.2rem; opacity: 0.8; }
-        .skill-category ul { list-style: none; }
-        .skill-category ul li {
-            padding: 0.5rem 0; color: var(--text-color); border-bottom: 1px solid var(--border-color);
-            font-size: 0.98rem; opacity: 0.9; transition: background-color 0.2s ease, padding-left 0.2s ease;
-        }
-        .skill-category ul li:last-child { border-bottom: none; }
-        .skill-category ul li:hover { background-color: var(--highlight-bg); padding-left: 5px;}
-        
-        .experience-item {
-            background-color: var(--card-bg); padding: 1.8rem; border-radius: var(--border-radius);
-            margin-bottom: 1.8rem; box-shadow: var(--shadow-soft);
-            border-left: 4px solid var(--primary-color);
-        }
-        .experience-item h3 { font-size: 1.25rem; margin-bottom: 0.2rem; color: var(--text-color); }
-        .experience-duration { font-size: 0.9rem; color: var(--secondary-color); margin-bottom: 0.8rem; font-style: italic; }
-        .experience-item ul { list-style: disc; margin-left: 1.5rem; }
-        .experience-item ul li { margin-bottom: 0.4rem; font-size: 0.95rem; color: var(--secondary-color); }
-        
-        .value-proposition-section { /* This is the "Why Hire Me?" section */
-            background: var(--card-bg); 
-            color: var(--text-color);
-            padding: 70px 0;
+        .hero-content {
             text-align: center;
+            max-width: 800px;
+            z-index: 10;
+            position: relative;
         }
-        .value-proposition-section h2 {
-            color: var(--primary-color); 
-            font-family: var(--font-display);
-            font-size: 2.8rem; 
+
+        .hero-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+            box-shadow: var(--shadow-xl);
+            animation: float 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
         }
-        .value-proposition-section h2::after { background-color: var(--accent-color); }
-        .value-proposition-section > p {
-            color: var(--secondary-color);
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 1.15rem;
-            margin-bottom: 2.5rem;
+
+        .hero-avatar::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+            transform: rotate(45deg);
+            animation: shine 2s ease-in-out infinite;
         }
-        .value-points { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
-        .value-point {
-            background-color: var(--highlight-bg);
-            padding: 1.8rem; border-radius: var(--border-radius);
-            text-align: left;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-            border: 1px solid var(--border-color);
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
-        .value-point:hover {
-            background-color: var(--card-bg);
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-medium);
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
-        .value-point i {
-            font-size: 2.2rem; color: var(--primary-color); margin-bottom: 1rem;
-            display: inline-block; 
+
+        .typing-animation {
+            border-right: 2px solid var(--primary-color);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: var(--primary-color); }
+            51%, 100% { border-color: transparent; }
+        }
+
+        /* Card Styling */
+        .card {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            transition: all var(--animation-duration) var(--animation-timing);
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        /* Interactive Elements */
+        .interactive-btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--animation-duration) var(--animation-timing);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transition: all 0.5s;
+            transform: translate(-50%, -50%);
+        }
+
+        .interactive-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .interactive-btn:hover::before {
+            width: 200px;
+            height: 200px;
+        }
+
+        /* Skills Progress Bars */
+        .skill-item {
+            margin-bottom: 25px;
+        }
+
+        .skill-bar {
+            background: #e2e8f0;
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 2s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50px;
+            width: 50px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: skillShine 2s infinite;
+        }
+
+        @keyframes skillShine {
+            0% { left: -50px; }
+            100% { left: 100%; }
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-gradient);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            background: var(--bg-white);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--animation-duration) var(--animation-timing);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid var(--bg-white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--bg-white);
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            transition: all var(--animation-duration) var(--animation-timing);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity var(--animation-duration) var(--animation-timing);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .contact-card:hover::before {
             opacity: 0.9;
         }
-        .value-point h4 { font-size: 1.25rem; color: var(--text-color); margin-bottom: 0.6rem; font-weight: 600;}
-        .value-point p { font-size: 0.98rem; color: var(--secondary-color); margin-bottom: 0; line-height: 1.65;}
 
-        /* --- Hidden Offering Section --- */
-        .hidden-offering-section {
-            display: none; 
-            padding: 50px 0;
-            background-color: var(--bg-color); 
-            border-top: 1px solid var(--border-color);
-            margin-top: 30px; 
-            animation: fadeInOffer 0.8s ease-out;
+        .contact-card:hover .contact-content {
+            color: white;
+            z-index: 10;
+            position: relative;
         }
-        @keyframes fadeInOffer {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .hidden-offering-section.visible { display: block; }
-        .hidden-offering-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-            background-color: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-medium);
-        }
-        .hidden-offering-content h3 {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        .hidden-offering-content p {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        .offer-input-group {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        .offer-input-group label { font-weight: 500; }
-        #conceptualOfferAmount {
-            padding: 0.7rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            width: 180px; /* Wider for amount */
-            text-align: right;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-        #conceptualOfferAmount:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(22, 160, 133, 0.2);
-        }
-        #submitConceptualOffer {
-            padding: 0.7rem 1.5rem;
-        }
-        #offerResponse {
-            margin-top: 1.5rem;
-            font-weight: 600;
-            min-height: 1.5em; 
-            padding: 0.5rem;
-            border-radius: var(--border-radius);
-        }
-        .offer-rejected { color: #e74c3c; background-color: rgba(231, 76, 60, 0.1); border: 1px solid rgba(231, 76, 60, 0.3); } 
-        .offer-pending { color: #f39c12; background-color: rgba(243, 156, 18, 0.1); border: 1px solid rgba(243, 156, 18, 0.3); } 
-        .offer-accepted { color: var(--primary-color); background-color: rgba(22, 160, 133, 0.1); border: 1px solid rgba(22, 160, 133, 0.3); }
 
-        /* Easter egg trigger style */
-        #revealOfferTrigger {
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s var(--animation-timing);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s var(--animation-timing);
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s var(--animation-timing);
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Dark Theme */
+        .dark-theme {
+            --text-primary: #e2e8f0;
+            --text-secondary: #a0aec0;
+            --bg-light: #1a202c;
+            --bg-white: #2d3748;
+        }
+
+        /* Hidden Offering Section */
+        .hidden-section {
+            display: none;
+            background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);
+            border-radius: 20px;
+            margin: 40px 0;
+            padding: 40px;
+            border: 2px dashed var(--secondary-color);
+            animation: revealSection 0.8s ease-out;
+        }
+
+        .hidden-section.visible {
             display: block;
-            text-align: center;
-            margin-top: 2.5rem; /* More space */
-            font-size: 0.9rem; /* Slightly larger */
+        }
+
+        @keyframes revealSection {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .easter-egg-trigger {
             color: var(--secondary-color);
             cursor: pointer;
-            text-decoration: none; /* No underline by default */
-            border-bottom: 1px dotted var(--secondary-color); /* Dotted underline */
-            padding-bottom: 2px;
-            opacity: 0.8;
-            transition: opacity var(--transition-speed), color var(--transition-speed), border-bottom-color var(--transition-speed);
+            padding: 10px 20px;
+            border: 2px dashed var(--secondary-color);
+            border-radius: 10px;
+            display: inline-block;
+            margin: 20px auto;
+            transition: all var(--animation-duration) var(--animation-timing);
+            background: rgba(240, 147, 251, 0.1);
         }
-        #revealOfferTrigger:hover { opacity: 1; color: var(--primary-color); border-bottom-color: var(--primary-color); }
 
+        .easter-egg-trigger:hover {
+            background: var(--secondary-gradient);
+            color: white;
+            transform: scale(1.05);
+        }
 
-        .contact-section p { text-align: center; max-width: 650px; margin-left: auto; margin-right: auto; margin-bottom: 3rem; font-size: 1.15rem;}
-        .contact-methods-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.8rem; max-width: 850px; margin: 0 auto;
-        }
-        .contact-method {
-            background-color: var(--card-bg); padding: 1.8rem;
-            border-radius: var(--border-radius); text-decoration: none; color: var(--text-color);
-            display: flex; flex-direction: column; align-items: center; text-align: center;
-            box-shadow: var(--shadow-soft); border: 1px solid var(--border-color);
-            transition: all var(--transition-speed);
-        }
-        .contact-method:hover {
-            transform: translateY(-6px) scale(1.03); box-shadow: var(--shadow-medium);
-            background: var(--primary-color); color: #fff; border-color: transparent;
-        }
-        .contact-method i { font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary-color); transition: color var(--transition-speed); }
-        .contact-method:hover i { color: #fff; }
-        .contact-method span.contact-label { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.3rem;}
-        .contact-method span.contact-detail { font-size: 0.9rem; color: var(--secondary-color); word-break: break-all;} /* Allow email to break */
-        .contact-method:hover span.contact-detail { color: rgba(255,255,255,0.8); }
-        .contact-method.call-action p { font-size: 0.85rem; margin-top: 0.5rem; margin-bottom: 0; }
-
-        footer {
-            background-color: var(--card-bg); color: var(--secondary-color); text-align: center;
-            padding: 2.2rem 0; border-top: 1px solid var(--border-color); font-size: 0.95rem;
-            transition: background-color var(--transition-speed), border-color var(--transition-speed);
-        }
-        .footer-social-links { margin-top: 0.6rem; }
-        .footer-social-links a { color: var(--secondary-color); font-size: 1.3rem; margin: 0 0.6rem; transition: color var(--transition-speed), transform 0.2s ease; }
-        .footer-social-links a:hover { color: var(--primary-color); transform: scale(1.2); }
-
-        @media (max-width: 992px) {
-            .hero-title { font-size: 3.2rem; }
-            h2 { font-size: 2.4rem; }
-        }
+        /* Responsive Design */
         @media (max-width: 768px) {
-            html { font-size: 15px; }
-            nav ul { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--bg-color); box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-top: 1px solid var(--border-color); }
-            nav ul.active { display: flex; }
-            nav ul li { margin: 0; text-align: center; }
-            nav ul li a { display: block; padding: 1rem; border-bottom: 1px solid var(--border-color); }
-            nav ul li:last-child a { border-bottom: none; }
-            nav ul li a::after { display: none; }
-            .menu-toggle { display: block; }
-            .hero-title { font-size: 2.6rem; }
-            .hero-image-container { width: 150px; height: 150px; }
-            h2 { font-size: 2.1rem; }
-            .skills-grid, .value-points, .contact-methods-grid { grid-template-columns: 1fr; }
-            .offer-input-group { flex-direction: column; gap: 0.5rem; align-items: stretch; }
-            #conceptualOfferAmount { width: 100%; }
+            .section {
+                padding: 40px 15px;
+            }
+            
+            .hero-avatar {
+                width: 150px;
+                height: 150px;
+                font-size: 3.5rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .sidebar {
+                width: 250px;
+                left: -250px;
+            }
         }
-        @media (max-width: 480px) {
-            .hero-title { font-size: 2.2rem; }
-            .btn { padding: 0.7rem 1.6rem; font-size: 0.9rem; }
-            h2 { font-size: 1.9rem; }
-            .container { padding: 0 15px; }
-            .hidden-offering-content { padding: 1.5rem; }
+
+        @media (max-width: 640px) {
+            html {
+                font-size: 14px;
+            }
+            
+            .hero-avatar {
+                width: 120px;
+                height: 120px;
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gradient);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-gradient);
         }
     </style>
 </head>
 <body>
-    <div class="theme-switcher">
-        <button id="themeToggleBtn" aria-label="Toggle theme">
-            <i class="fas fa-moon"></i>
-        </button>
-    </div>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
 
-    <header id="mainHeader">
-        <nav class="container">
-            <a href="#hero" class="logo">Sagar Paul</a>
-            <ul>
-                <li><a href="#about" class="active">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Journey</a></li> <!-- Renamed for flow -->
-                <li><a href="#why-hire-me">My Value</a></li> <!-- Renamed for flow -->
-                <li><a href="#contact">Connect</a></li>
+    <!-- Menu Toggle Button -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <nav class="sidebar" id="sidebar">
+        <div class="p-8">
+            <div class="text-center mb-8">
+                <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <i class="fas fa-user text-2xl text-white"></i>
+                </div>
+                <h3 class="text-white text-xl font-bold">Sagar Paul</h3>
+                <p class="text-white text-opacity-80 text-sm">DMLT Professional</p>
+            </div>
+            
+            <ul class="space-y-4">
+                <li><a href="#hero" class="nav-link flex items-center text-white text-opacity-80 hover:text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white hover:bg-opacity-10"><i class="fas fa-home mr-3"></i>Home</a></li>
+                <li><a href="#about" class="nav-link flex items-center text-white text-opacity-80 hover:text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white hover:bg-opacity-10"><i class="fas fa-user mr-3"></i>About</a></li>
+                <li><a href="#skills" class="nav-link flex items-center text-white text-opacity-80 hover:text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white hover:bg-opacity-10"><i class="fas fa-cogs mr-3"></i>Skills</a></li>
+                <li><a href="#experience" class="nav-link flex items-center text-white text-opacity-80 hover:text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white hover:bg-opacity-10"><i class="fas fa-graduation-cap mr-3"></i>Journey</a></li>
+                <li><a href="#value" class="nav-link flex items-center text-white text-opacity-80 hover:text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white hover:bg-opacity-10"><i class="fas fa-star mr-3"></i>My Value</a></li>
+                <li><a href="#contact" class="nav-link flex items-center text-white text-opacity-80 hover:text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white hover:bg-opacity-10"><i class="fas fa-envelope mr-3"></i>Contact</a></li>
+                <li><a href="#more" class="nav-link flex items-center text-white text-opacity-80 hover:text-white py-3 px-4 rounded-lg transition-all duration-300 hover:bg-white hover:bg-opacity-10"><i class="fas fa-ellipsis-h mr-3"></i>More Options</a></li>
             </ul>
-            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
 
-    <main>
-        <section id="hero" class="hero-section">
-            <div class="container hero-content">
-                 <div class="hero-image-container">
-                    <img src="https://via.placeholder.com/170x170.png?text=SP" alt="Sagar Paul" class="hero-image">
-                    <!-- Sagar, replace with your professional photo -->
+            <div class="mt-8 pt-8 border-t border-white border-opacity-20">
+                <div class="flex justify-center space-x-4">
+                    <a href="mailto:sagar.paul.example@email.com" class="text-white text-opacity-60 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-envelope text-lg"></i>
+                    </a>
+                    <a href="https://www.facebook.com/your.sagarpaul.profile" target="_blank" class="text-white text-opacity-60 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-facebook text-lg"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sagarpaul_insta_example" target="_blank" class="text-white text-opacity-60 hover:text-white transition-colors duration-300">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
                 </div>
-                <p class="hero-greeting">Hello, I'm</p>
-                <h1 class="hero-title">Sagar Paul</h1>
-                <p class="hero-profession">Future DMLT Professional (Graduating 2026)</p>
-                <p class="hero-tagline">
-                    Driven by a passion for precision in laboratory science and committed to excellence in future healthcare contributions.
-                </p>
-                <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i>Connect With Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section section">
+            <div class="hero-content px-4">
+                <div class="hero-avatar">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                
+                <div class="mb-6">
+                    <p class="text-lg text-gray-600 mb-2 fade-in">Hello, I'm</p>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-4 fade-in" style="font-family: 'Playfair Display', serif; animation-delay: 0.2s;">
+                        Sagar Paul
+                    </h1>
+                    <div class="text-2xl md:text-3xl text-gray-700 mb-6 fade-in" style="animation-delay: 0.4s;">
+                        <span id="typingText" class="typing-animation"></span>
+                    </div>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8 fade-in" style="animation-delay: 0.6s;">
+                        Driven by a passion for precision in laboratory science and committed to excellence in future healthcare contributions.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4 fade-in" style="animation-delay: 0.8s;">
+                    <button class="interactive-btn" onclick="scrollToSection('contact')">
+                        <i class="fas fa-paper-plane mr-2"></i>Connect With Me
+                    </button>
+                    <button class="interactive-btn" style="background: var(--secondary-gradient);" onclick="scrollToSection('about')">
+                        <i class="fas fa-user mr-2"></i>Learn More
+                    </button>
+                </div>
+
+                <div class="mt-8 flex justify-center space-x-6 fade-in" style="animation-delay: 1s;">
+                    <a href="mailto:sagar.paul.example@email.com" class="text-2xl text-gray-500 hover:text-purple-600 transition-colors duration-300 transform hover:scale-110">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.facebook.com/your.sagarpaul.profile" target="_blank" class="text-2xl text-gray-500 hover:text-blue-600 transition-colors duration-300 transform hover:scale-110">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/sagarpaul_insta_example" target="_blank" class="text-2xl text-gray-500 hover:text-pink-600 transition-colors duration-300 transform hover:scale-110">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <section id="about" class="about-section fade-in-element">
-            <div class="container">
-                <h2>About Me</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>I am <strong>Sagar Paul</strong>, a dedicated student pursuing a Diploma in Medical Laboratory Technology, with an anticipated graduation in 2026. My academic journey is fueled by a profound interest in the scientific principles that underpin medical diagnostics and a strong aspiration to make a tangible impact on patient care in the future.</p>
-                        <p>I am diligently building my expertise in core laboratory disciplines, focusing on developing both the theoretical knowledge and practical skills necessary to excel as a DMLT professional. I embrace challenges with a problem-solving mindset and am committed to continuous learning in this dynamic field.</p>
-                        <p>While my primary ambition is to contribute effectively within a clinical laboratory setting, I also recognize the increasing importance of technology. I am an individual who believes that <span class="subtle-tech-hint" title="I enjoy exploring web development and data visualization to make complex information more accessible.">innovative digital approaches and efficient data handling</span> can significantly enhance outcomes and understanding, both in healthcare and other domains.
-                           <!-- HTML Comment for curious devs: Actively exploring how technology can augment traditional DMLT workflows and communication. -->
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 fade-in" style="font-family: 'Playfair Display', serif;">About Me</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6 slide-in-left">
+                        <div class="card">
+                            <p class="text-lg leading-relaxed mb-6">
+                                I am <strong class="text-purple-600">Sagar Paul</strong>, a dedicated student pursuing a Diploma in Medical Laboratory Technology, with an anticipated graduation in 2026. My academic journey is fueled by a profound interest in the scientific principles that underpin medical diagnostics.
+                            </p>
+                            <p class="text-lg leading-relaxed mb-6">
+                                I am diligently building my expertise in core laboratory disciplines, focusing on developing both theoretical knowledge and practical skills necessary to excel as a DMLT professional.
+                            </p>
+                            <p class="text-lg leading-relaxed">
+                                While my primary ambition is to contribute effectively within a clinical laboratory setting, I also recognize the increasing importance of technology in enhancing healthcare outcomes.
+                            </p>
+                        </div>
+                        
+                        <button class="interactive-btn">
+                            <i class="fas fa-file-alt mr-2"></i>View My CV
+                        </button>
+                    </div>
+                    
+                    <div class="slide-in-right">
+                        <div class="card text-center">
+                            <div class="w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mx-auto mb-6 flex items-center justify-center">
+                                <i class="fas fa-microscope text-4xl text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Future DMLT Professional</h3>
+                            <p class="text-gray-600 mb-6">Passionate about precision, dedicated to excellence, and committed to making a positive impact in healthcare diagnostics.</p>
+                            
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div class="bg-purple-50 p-4 rounded-lg">
+                                    <i class="fas fa-calendar-alt text-purple-600 mb-2 text-xl block"></i>
+                                    <strong>Graduation</strong><br>2026
+                                </div>
+                                <div class="bg-blue-50 p-4 rounded-lg">
+                                    <i class="fas fa-map-marker-alt text-blue-600 mb-2 text-xl block"></i>
+                                    <strong>Location</strong><br>Available
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 fade-in" style="font-family: 'Playfair Display', serif;">Developing Skillset</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Core Laboratory Skills -->
+                    <div class="card fade-in">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i class="fas fa-vials text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Core Laboratory Focus</h3>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-sm font-medium">Hematology</span>
+                                    <span class="text-sm text-gray-500">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-sm font-medium">Biochemistry</span>
+                                    <span class="text-sm text-gray-500">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="80"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-sm font-medium">Microbiology</span>
+                                    <span class="text-sm text-gray-500">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="75"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Aptitude -->
+                    <div class="card fade-in" style="animation-delay: 0.2s;">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i class="fas fa-tools text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Technical Aptitude</h3>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-sm font-medium">Microscopy</span>
+                                    <span class="text-sm text-gray-500">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-sm font-medium">Lab Equipment</span>
+                                    <span class="text-sm text-gray-500">82%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="82"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-sm font-medium">Data Recording</span>
+                                    <span class="text-sm text-gray-500">88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="88"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Digital Skills -->
+                    <div class="card fade-in" style="animation-delay: 0.4s;">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i class="fas fa-brain text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Digital Acumen</h3>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-sm font-medium">Critical Thinking</span>
+                                    <span class="text-sm text-gray-500">92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="92"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-sm font-medium">Data Visualization</span>
+                                    <span class="text-sm text-gray-500">78%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="78"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-sm font-medium">Software Tools</span>
+                                    <span class="text-sm text-gray-500">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 fade-in" style="font-family: 'Playfair Display', serif;">Academic Journey & Aspirations</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item fade-in">
+                        <div class="flex items-start">
+                            <div class="bg-gradient-to-r from-purple-400 to-pink-400 rounded-lg p-4 mr-4">
+                                <i class="fas fa-graduation-cap text-2xl text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold mb-2">Diploma in Medical Laboratory Technology</h3>
+                                <p class="text-purple-600 font-semibold mb-2">Expected Graduation: 2026</p>
+                                <p class="text-gray-600 mb-4">Currently engaged in comprehensive DMLT curriculum, focusing on foundational and advanced laboratory sciences.</p>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i>Participating in practical lab sessions</li>
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i>Building quality control understanding</li>
+                                    <li class="flex items-start"><i class="fas fa-check text-green-500 mr-2 mt-1"></i>Researching diagnostic technologies</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in" style="animation-delay: 0.2s;">
+                        <div class="flex items-start">
+                            <div class="bg-gradient-to-r from-blue-400 to-cyan-400 rounded-lg p-4 mr-4">
+                                <i class="fas fa-microscope text-2xl text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold mb-2">Future Aspirations</h3>
+                                <p class="text-blue-600 font-semibold mb-2">Post-2026 Goals</p>
+                                <p class="text-gray-600 mb-4">Eagerly anticipating internship and clinical rotation opportunities to apply theoretical knowledge in real-world settings.</p>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-start"><i class="fas fa-star text-yellow-500 mr-2 mt-1"></i>Clinical laboratory excellence</li>
+                                    <li class="flex items-start"><i class="fas fa-star text-yellow-500 mr-2 mt-1"></i>Continuous professional development</li>
+                                    <li class="flex items-start"><i class="fas fa-star text-yellow-500 mr-2 mt-1"></i>Technology integration in healthcare</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <div class="easter-egg-trigger fade-in" id="easterEggTrigger" style="animation-delay: 0.4s;">
+                        <i class="fas fa-gift mr-2"></i>
+                        Curious about my future value & dedication? Click here to discover more!
+                    </div>
+                </div>
+
+                <!-- Hidden Offering Section -->
+                <div class="hidden-section" id="hiddenSection">
+                    <div class="text-center">
+                        <h3 class="text-3xl font-bold mb-6 text-purple-600" style="font-family: 'Playfair Display', serif;">My Commitment to Future Value</h3>
+                        <p class="text-lg mb-6">You've uncovered a glimpse into my future aspirations! My primary focus now is dedicated learning and growth in DMLT.</p>
+                        
+                        <div class="bg-white rounded-lg p-6 max-w-md mx-auto mb-6">
+                            <div class="text-2xl font-bold text-purple-600 mb-2">
+                                ₹<span id="aspirationalSalary">10,000</span>
+                            </div>
+                            <p class="text-sm text-gray-600">Conceptual base aspiration for <span id="aspirationalYear">2026</span></p>
+                        </div>
+                        
+                        <div class="space-y-4 max-w-md mx-auto">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Your Conceptual Offer (₹ per month):</label>
+                                <input type="number" id="offerAmount" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="e.g., 12000">
+                            </div>
+                            <button class="interactive-btn w-full" id="submitOffer">
+                                <i class="fas fa-paper-plane mr-2"></i>See My Response
+                            </button>
+                            <div id="offerResponse" class="p-4 rounded-lg hidden"></div>
+                        </div>
+                        
+                        <p class="text-xs text-gray-500 mt-6 max-w-2xl mx-auto">
+                            <em><strong>Disclaimer:</strong> This is a conceptual and playful feature for engagement. It does not constitute a formal salary negotiation or binding agreement.</em>
                         </p>
-                        <a href="SAGAR_PAUL_PROSPECTIVE_CV.pdf" target="_blank" class="btn"><i class="fas fa-file-alt"></i>View My Prospective CV</a>
-                        <!-- Sagar, replace SAGAR_PAUL_PROSPECTIVE_CV.pdf with your actual CV file name -->
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="skills-section fade-in-element">
-            <div class="container">
-                <h2>Developing Skillset</h2>
-                <div class="skills-grid">
-                    <div class="skill-category fade-in-element">
-                        <h3><i class="fas fa-vials"></i> Core Laboratory Focus</h3>
-                        <ul>
-                            <li>Hematology & Blood Cell Morphology</li>
-                            <li>Clinical Biochemistry Principles</li>
-                            <li>Microbiology & Sterilization Techniques</li>
-                            <li>Immunology & Serology Concepts</li>
-                            <li>Urinalysis & Sample Integrity</li>
-                            <li>Fundamentals of Transfusion Medicine</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category fade-in-element">
-                        <h3><i class="fas fa-tools"></i> Technical Aptitude</h3>
-                        <ul>
-                            <li>Microscopy & Staining Procedures</li>
-                            <li>Basic Laboratory Equipment Operation</li>
-                            <li>Precision in Sample Measurement</li>
-                            <li>Data Recording & Documentation</li>
-                            <li>Understanding of LIS/LIMS</li>
-                            <li>Adherence to Safety Protocols</li>
-                        </ul>
-                    </div>
-                     <div class="skill-category web-dev-skills fade-in-element"> 
-                        <h3><i class="fas fa-brain"></i> Analytical & Digital Acumen</h3>
-                        <ul>
-                            <li>Critical Thinking & Problem Solving</li>
-                            <li>Data Interpretation (Introductory)</li>
-                            <li>Effective Communication Skills</li>
-                            <li>Microsoft Office Suite Proficiency</li>
-                            <li>Interest in Data Visualization</li>
-                            <li>Adaptability to New Software/Tools</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="experience" class="experience-section fade-in-element"> <!-- Renamed to Journey -->
-            <div class="container">
-                <h2>Academic Journey & Aspirations</h2>
-                <div class="experience-item fade-in-element">
-                    <h3>Diploma in Medical Laboratory Technology - [Your College/Institute Name]</h3>
-                    <!-- Sagar, replace [Your College/Institute Name] -->
-                    <p class="experience-duration">[City, State] | Expected Graduation: 2026</p>
-                    <ul>
-                        <li>Currently engaged in comprehensive DMLT curriculum, focusing on foundational and advanced laboratory sciences.</li>
-                        <li>Actively participating in practical lab sessions to develop hands-on skills with various diagnostic procedures and equipment.</li>
-                        <li>Building a strong understanding of quality control, ethical practices, and the role of DMLT in patient care pathways.</li>
-                        <li>Eagerly anticipating future internship and clinical rotation opportunities to apply theoretical knowledge in real-world settings.</li>
-                        <li>Researching advancements in diagnostic technologies and laboratory automation.</li>
-                    </ul>
-                </div>
-                 <p id="revealOfferTrigger" class="fade-in-element" style="animation-delay: 0.5s;">Curious about my future value & dedication? Click here.</p>
-            </div>
-        </section>
-        
-        <!-- HIDDEN OFFERING SECTION -->
-        <section id="hiddenOffering" class="hidden-offering-section">
-            <div class="container hidden-offering-content">
-                <h3>My Commitment to Future Value</h3>
-                <p>You've uncovered a glimpse into my future aspirations! My primary focus now is dedicated learning and growth in DMLT. However, for those planning ahead, I believe in being forthright about the value I aim to deliver upon my graduation in 2026 and beyond.</p>
-                <p>
-                    My conceptual base aspiration for <strong id="aspirationalYear">2026</strong> is
-                    <strong>₹<span id="aspirationalBaseSalary">10000</span> per month</strong>.
-                    This reflects my commitment to continuous professional development and the increasing value I intend to bring each year.
+        <!-- Value Proposition Section -->
+        <section id="value" class="section">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 fade-in" style="font-family: 'Playfair Display', serif;">My Value (Post-2026)</h2>
+                
+                <p class="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto fade-in" style="animation-delay: 0.2s;">
+                    Upon completing my DMLT, I aim to be a valuable asset, bringing fresh knowledge, dedication, and a proactive approach to any laboratory team.
                 </p>
                 
-                <div class="offer-input-group">
-                    <label for="conceptualOfferAmount">Your Conceptual Offer for <span id="currentOfferYearDisplay">2026</span> (₹ per month):</label>
-                    <input type="number" id="conceptualOfferAmount" placeholder="e.g., 12000">
-                </div>
-                <button id="submitConceptualOffer" class="btn">See My Conceptual Response</button>
-                <div id="offerResponse"></div>
-                <p style="font-size: 0.8rem; margin-top: 2rem; color: var(--secondary-color);"><em><strong>Disclaimer:</strong> This is a conceptual and playful feature for engagement. It does not constitute a formal salary negotiation or binding agreement. Actual compensation will be subject to market conditions, role specifics, and mutual discussion at the appropriate time post-graduation.</em></p>
-            </div>
-        </section>
-
-
-        <section id="why-hire-me" class="value-proposition-section fade-in-element"> <!-- Renamed to My Value -->
-            <div class="container">
-                <h2>My Value (Post-2026)</h2>
-                <p>Upon completing my DMLT, I aim to be a valuable asset, bringing fresh knowledge, dedication, and a proactive approach to any laboratory team.</p>
-                <div class="value-points">
-                    <div class="value-point fade-in-element">
-                        <i class="fas fa-microscope"></i>
-                        <h4>Solid Foundational Knowledge</h4>
-                        <p>Equipped with comprehensive DMLT training, I will be ready to apply theoretical understanding to practical, real-world laboratory challenges effectively.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="card text-center fade-in" style="animation-delay: 0.3s;">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-microscope text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Solid Foundation</h3>
+                        <p class="text-gray-600 text-sm">Equipped with comprehensive DMLT training, ready to apply theoretical understanding to practical challenges.</p>
                     </div>
-                    <div class="value-point fade-in-element">
-                        <i class="fas fa-cogs"></i>
-                        <h4>Commitment to Precision</h4>
-                        <p>My education emphasizes the critical importance of accuracy and meticulousness, qualities I am dedicated to upholding in every task.</p>
+                    
+                    <div class="card text-center fade-in" style="animation-delay: 0.4s;">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-cogs text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Precision Focus</h3>
+                        <p class="text-gray-600 text-sm">My education emphasizes critical importance of accuracy and meticulousness in every task.</p>
                     </div>
-                    <div class="value-point fade-in-element">
-                        <i class="fas fa-user-plus"></i>
-                        <h4>Eager & Adaptable Contributor</h4>
-                        <p>I am enthusiastic about learning new techniques, adapting to evolving technologies, and contributing positively to team goals and lab efficiency.
-                           <!-- HTML Comment for tech hirers: This adaptability isn't just for lab tech; I'm quick to pick up digital tools too. -->
-                        </p>
+                    
+                    <div class="card text-center fade-in" style="animation-delay: 0.5s;">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-user-plus text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Adaptable Contributor</h3>
+                        <p class="text-gray-600 text-sm">Enthusiastic about learning new techniques and contributing positively to team goals.</p>
                     </div>
-                    <div class="value-point fade-in-element">
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <h4>Patient-Centric Focus</h4>
-                        <p>I understand that behind every sample is a patient, and I am driven by the desire to contribute to accurate diagnoses that improve lives.</p>
+                    
+                    <div class="card text-center fade-in" style="animation-delay: 0.6s;">
+                        <div class="w-16 h-16 bg-gradient-to-r from-pink-400 to-red-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-heart text-2xl text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Patient-Centric</h3>
+                        <p class="text-gray-600 text-sm">Understanding that behind every sample is a patient, driven to contribute to accurate diagnoses.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact-section fade-in-element">
-            <div class="container">
-                <h2>Connect with Sagar Paul</h2>
-                <p>I am currently focused on my DMLT studies (graduating 2026) but am always open to connecting with professionals and learning about the field. Feel free to reach out!</p>
-                <div class="contact-methods-grid">
-                    <a href="mailto:sagar.paul.example@email.com" class="contact-method fade-in-element">
-                        <!-- Sagar, replace with your actual email -->
-                        <i class="fas fa-envelope"></i>
-                        <span class="contact-label">Email Me</span>
-                        <span class="contact-detail">sagar.paul.example@email.com</span>
-                    </a>
-                    <a href="https://www.facebook.com/your.sagarpaul.profile" target="_blank" rel="noopener noreferrer" class="contact-method fade-in-element">
-                        <!-- Sagar, replace with your Facebook profile URL -->
-                        <i class="fab fa-facebook-f"></i>
-                        <span class="contact-label">Facebook</span>
-                        <span class="contact-detail">View My Profile</span>
-                    </a>
-                    <a href="https://www.instagram.com/sagarpaul_insta_example" target="_blank" rel="noopener noreferrer" class="contact-method fade-in-element">
-                        <!-- Sagar, replace with your Instagram profile URL -->
-                        <i class="fab fa-instagram"></i>
-                        <span class="contact-label">Instagram</span>
-                        <span class="contact-detail">Follow My Journey</span>
-                    </a>
-                    <a href="tel:YOUR_PHONE_NUMBER_HERE" class="contact-method call-action fade-in-element">
-                        <!-- Sagar, CRITICAL: replace YOUR_PHONE_NUMBER_HERE with your actual number like +91xxxxxxxxxx -->
-                        <i class="fas fa-phone-alt"></i>
-                        <span class="contact-label">Initiate Call</span>
-                        <span class="contact-detail">(Opens phone dialer)</span>
-                        <p style="font-size:0.8rem; margin-top:0.5rem;">If you wish to discuss potential future opportunities or mentorship, please feel free to initiate a call.</p>
-                    </a>
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 fade-in" style="font-family: 'Playfair Display', serif;">Connect with Sagar Paul</h2>
+                
+                <p class="text-xl text-center text-gray-600 mb-12 max-w-2xl mx-auto fade-in" style="animation-delay: 0.2s;">
+                    I am currently focused on my DMLT studies (graduating 2026) but am always open to connecting with professionals and learning about the field. Feel free to reach out!
+                </p>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="contact-card fade-in" style="animation-delay: 0.3s;">
+                        <div class="contact-content">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i class="fas fa-envelope text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Email Me</h3>
+                            <p class="text-gray-600 text-sm">sagar.paul.example@email.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card fade-in" style="animation-delay: 0.4s;">
+                        <div class="contact-content">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i class="fab fa-facebook text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Facebook</h3>
+                            <p class="text-gray-600 text-sm">View My Profile</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card fade-in" style="animation-delay: 0.5s;">
+                        <div class="contact-content">
+                            <div class="w-16 h-16 bg-gradient-to-r from-pink-400 to-red-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i class="fab fa-instagram text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-lg font-bold mb-2">Instagram</h3>
+                            <p class="text-gray-600 text-sm">Follow My Journey</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- More Options Section -->
+        <section id="more" class="section">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold mb-8 fade-in" style="font-family: 'Playfair Display', serif;">More Options</h2>
+                <div class="card fade-in" style="animation-delay: 0.2s;">
+                    <i class="fas fa-plus-circle text-4xl text-purple-600 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-4">Additional Sections</h3>
+                    <p class="text-gray-600 mb-6">This space is reserved for future content and additional sections that can be manually added as needed.</p>
+                    <p class="text-sm text-gray-500">You can expand this portfolio by adding more sections such as:</p>
+                    <div class="flex flex-wrap justify-center gap-3 mt-4">
+                        <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">Projects</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Certifications</span>
+                        <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">Awards</span>
+                        <span class="px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-sm">Testimonials</span>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>© <span id="currentYear"></span> Sagar Paul. Future DMLT Professional. Graduating 2026.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <p class="mb-4">© <span id="currentYear">2024</span> Sagar Paul. Future DMLT Professional. Graduating 2026.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="mailto:sagar.paul.example@email.com" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+                <a href="https://www.facebook.com/your.sagarpaul.profile" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <i class="fab fa-facebook text-xl"></i>
+                </a>
+                <a href="https://www.instagram.com/sagarpaul_insta_example" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentYear = new Date().getFullYear();
-            document.getElementById('currentYear').textContent = currentYear;
-
-            console.log(
-                "%cGreetings, Explorer! 👋",
-                "color: #16a085; font-size: 1.3em; font-weight: bold; padding: 5px 0;"
-            );
-            console.log(
-                "Sagar Paul is not just focusing on DMLT; there's a keen interest in leveraging technology for better solutions. The 'Hidden Offering' section (if you find it!) is a playful nod to future value. Reach out if you appreciate this blend of science and digital curiosity!"
-            );
-
-            const header = document.getElementById('mainHeader');
-            window.addEventListener('scroll', () => {
-                header.classList.toggle('scrolled', window.scrollY > 50);
-            });
-
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-            const sections = document.querySelectorAll('main section, .hidden-offering-section');
-            const headerHeight = header.offsetHeight || 70;
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        if (targetId === '#hiddenOffering' && !targetElement.classList.contains('visible')) {
-                            targetElement.classList.add('visible');
-                             if (!initialBaseCalculatedHiddenSection) { // Check flag
-                                calculateAndDisplayAspirationalBase();
-                                initialBaseCalculatedHiddenSection = true;
-                            }
-                        }
-                        const offsetTop = targetElement.offsetTop - headerHeight;
-                        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-                        if (document.querySelector('nav ul.active')) {
-                            document.querySelector('nav ul').classList.remove('active');
-                            document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
-                        }
-                    }
-                });
-            });
-            
-            function setActiveLink() {
-                let current = 'hero'; 
-                const scrollPosition = pageYOffset + headerHeight + Math.min(100, window.innerHeight * 0.3);
-
-                sections.forEach(section => {
-                     // Check if section is visible (not just in DOM) for the hidden one
-                    const isHiddenSectionAndNotVisible = section.classList.contains('hidden-offering-section') && !section.classList.contains('visible');
-                    if (!isHiddenSectionAndNotVisible && section.offsetTop <= scrollPosition && (section.offsetTop + section.offsetHeight) > scrollPosition) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').substring(1) === current) {
-                        link.classList.add('active');
-                    }
-                });
-
-                 if (pageYOffset < (document.querySelector('#about')?.offsetTop || sections[0].offsetTop) - headerHeight - 50) {
-                     navLinks.forEach(link => link.classList.remove('active'));
-                     const firstRelevantLink = document.querySelector('nav a[href="#about"]'); 
-                     if(firstRelevantLink) firstRelevantLink.classList.add('active');
+        // Initialize particles
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#667eea' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#667eea',
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
                 }
-            }
-            window.addEventListener('scroll', setActiveLink);
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 140, line_linked: { opacity: 1 } },
+                    bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 },
+                    remove: { particles_nb: 2 }
+                }
+            },
+            retina_detect: true
+        });
+
+        // DOM Elements
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const themeToggle = document.getElementById('themeToggle');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const easterEggTrigger = document.getElementById('easterEggTrigger');
+        const hiddenSection = document.getElementById('hiddenSection');
+        const submitOffer = document.getElementById('submitOffer');
+
+        // Current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Typing animation
+        const typingTexts = [
+            'Future DMLT Professional',
+            'Medical Laboratory Technologist',
+            'Healthcare Diagnostics Enthusiast',
+            'Laboratory Science Student'
+        ];
+        let currentTextIndex = 0;
+        let currentCharIndex = 0;
+        let isTyping = true;
+        const typingElement = document.getElementById('typingText');
+
+        function typeText() {
+            const currentText = typingTexts[currentTextIndex];
             
-            let initialBaseCalculatedHiddenSection = false; // Flag for hidden section base calculation
-
-            const initialHash = window.location.hash;
-            if (initialHash && document.querySelector(`nav a[href="${initialHash}"]`)) {
-                 navLinks.forEach(link => link.classList.remove('active'));
-                 document.querySelector(`nav a[href="${initialHash}"]`).classList.add('active');
-                 if (initialHash === '#hiddenOffering') { 
-                    const hiddenSectionEl = document.getElementById('hiddenOffering');
-                    if (hiddenSectionEl) {
-                        hiddenSectionEl.classList.add('visible');
-                        if (!initialBaseCalculatedHiddenSection) {
-                            calculateAndDisplayAspirationalBase(); // Calculate if directly linked
-                            initialBaseCalculatedHiddenSection = true;
-                        }
-                    }
-                 }
-            } else {
-                 const firstRelevantLink = document.querySelector('nav a[href="#about"]');
-                 if(firstRelevantLink) firstRelevantLink.classList.add('active');
-            }
-
-
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navUl = document.querySelector('nav ul');
-            if (menuToggle && navUl) {
-                menuToggle.addEventListener('click', () => {
-                    navUl.classList.toggle('active');
-                    menuToggle.setAttribute('aria-expanded', navUl.classList.contains('active').toString());
-                });
-            }
-
-            const themeToggleBtn = document.getElementById('themeToggleBtn');
-            const sunIcon = '<i class="fas fa-sun"></i>';
-            const moonIcon = '<i class="fas fa-moon"></i>';
-            function applyTheme(theme) {
-                if (theme === 'dark') {
-                    document.documentElement.classList.add('dark-theme');
-                    themeToggleBtn.innerHTML = sunIcon;
-                    localStorage.setItem('sagarPortfolioFutureTheme', 'dark');
+            if (isTyping) {
+                if (currentCharIndex < currentText.length) {
+                    typingElement.textContent += currentText.charAt(currentCharIndex);
+                    currentCharIndex++;
+                    setTimeout(typeText, 100);
                 } else {
-                    document.documentElement.classList.remove('dark-theme');
-                    themeToggleBtn.innerHTML = moonIcon;
-                    localStorage.setItem('sagarPortfolioFutureTheme', 'light');
+                    isTyping = false;
+                    setTimeout(typeText, 2000);
+                }
+            } else {
+                if (currentCharIndex > 0) {
+                    typingElement.textContent = currentText.substring(0, currentCharIndex - 1);
+                    currentCharIndex--;
+                    setTimeout(typeText, 50);
+                } else {
+                    isTyping = true;
+                    currentTextIndex = (currentTextIndex + 1) % typingTexts.length;
+                    setTimeout(typeText, 500);
                 }
             }
-            const savedTheme = localStorage.getItem('sagarPortfolioFutureTheme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            applyTheme(savedTheme);
-            themeToggleBtn.addEventListener('click', () => {
-                const newTheme = document.documentElement.classList.contains('dark-theme') ? 'light' : 'dark';
-                applyTheme(newTheme);
+        }
+
+        typeText();
+
+        // Menu toggle
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (sidebar.classList.contains('active')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+
+        sidebarOverlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+        });
+
+        // Theme toggle
+        let isDarkTheme = false;
+        themeToggle.addEventListener('click', () => {
+            isDarkTheme = !isDarkTheme;
+            document.body.classList.toggle('dark-theme', isDarkTheme);
+            const icon = themeToggle.querySelector('i');
+            if (isDarkTheme) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
             });
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+        }
 
-            const animatedElements = document.querySelectorAll('.fade-in-element');
-            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, observerOptions);
-            animatedElements.forEach(el => observer.observe(el));
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+            });
+        });
 
-            // --- Hidden Offering Logic ---
-            const revealTrigger = document.getElementById('revealOfferTrigger');
-            const hiddenOfferSection = document.getElementById('hiddenOffering');
-            const submitOfferBtn = document.getElementById('submitConceptualOffer');
-            const offerResponseEl = document.getElementById('offerResponse');
-            
-            const aspirationalYearEl = document.getElementById('aspirationalYear');
-            const aspirationalBaseSalaryEl = document.getElementById('aspirationalBaseSalary');
-            const currentOfferYearDisplayEl = document.getElementById('currentOfferYearDisplay');
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-            const baseSalary2026 = 10000;
-            const annualIncrementRate = 0.05; 
-            const graduationYear = 2026;
-            let actualOfferYearGlobal; 
-
-            function calculateAndDisplayAspirationalBase() {
-                const currentSystemYear = new Date().getFullYear();
-                actualOfferYearGlobal = Math.max(currentSystemYear, graduationYear); 
-
-                let currentYearCalculatedBase = baseSalary2026;
-                if (actualOfferYearGlobal > graduationYear) {
-                    for (let i = 0; i < (actualOfferYearGlobal - graduationYear); i++) {
-                        currentYearCalculatedBase *= (1 + annualIncrementRate);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Animate skill bars
+                    if (entry.target.classList.contains('card')) {
+                        const skillBars = entry.target.querySelectorAll('.skill-progress');
+                        skillBars.forEach((bar, index) => {
+                            setTimeout(() => {
+                                const progress = bar.getAttribute('data-progress');
+                                bar.style.width = progress + '%';
+                            }, index * 200);
+                        });
                     }
                 }
-                currentYearCalculatedBase = Math.round(currentYearCalculatedBase);
+            });
+        }, observerOptions);
 
-                if (aspirationalYearEl) aspirationalYearEl.textContent = actualOfferYearGlobal.toString();
-                if (aspirationalBaseSalaryEl) aspirationalBaseSalaryEl.textContent = currentYearCalculatedBase.toLocaleString('en-IN');
-                if (currentOfferYearDisplayEl) currentOfferYearDisplayEl.textContent = actualOfferYearGlobal.toString();
-                
-                return currentYearCalculatedBase;
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Easter egg functionality
+        easterEggTrigger.addEventListener('click', () => {
+            hiddenSection.classList.toggle('visible');
+            if (hiddenSection.classList.contains('visible')) {
+                hiddenSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-            
+        });
 
-            if (revealTrigger && hiddenOfferSection) {
-                revealTrigger.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    hiddenOfferSection.classList.toggle('visible');
-                    if (hiddenOfferSection.classList.contains('visible')) {
-                        if (!initialBaseCalculatedHiddenSection) {
-                            calculateAndDisplayAspirationalBase();
-                            initialBaseCalculatedHiddenSection = true;
+        // Offer submission
+        submitOffer.addEventListener('click', () => {
+            const offerAmount = document.getElementById('offerAmount').value;
+            const responseDiv = document.getElementById('offerResponse');
+            
+            if (!offerAmount || offerAmount <= 0) {
+                responseDiv.className = 'p-4 rounded-lg bg-red-100 border border-red-300 text-red-700';
+                responseDiv.textContent = 'Please enter a valid offer amount.';
+                responseDiv.classList.remove('hidden');
+                return;
+            }
+
+            const baseExpectation = 10000;
+            const amount = parseInt(offerAmount);
+
+            let responseClass, responseText;
+
+            if (amount < baseExpectation) {
+                responseClass = 'p-4 rounded-lg bg-red-100 border border-red-300 text-red-700';
+                responseText = `An offer of ₹${amount.toLocaleString()} is below my conceptual aspiration of ₹${baseExpectation.toLocaleString()}. My dedication and potential merit further consideration!`;
+            } else if (amount <= baseExpectation * 2) {
+                responseClass = 'p-4 rounded-lg bg-yellow-100 border border-yellow-300 text-yellow-700';
+                responseText = `An offer of ₹${amount.toLocaleString()} is promising! This demonstrates good value recognition and would certainly warrant positive discussion.`;
+            } else {
+                responseClass = 'p-4 rounded-lg bg-green-100 border border-green-300 text-green-700';
+                responseText = `An offer of ₹${amount.toLocaleString()} is very compelling! This shows strong value recognition and would be met with great enthusiasm.`;
+            }
+
+            responseDiv.className = responseClass;
+            responseDiv.textContent = responseText;
+            responseDiv.classList.remove('hidden');
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('bg-white', 'bg-opacity-20', 'text-white');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('bg-white', 'bg-opacity-20', 'text-white');
                         }
-                        hiddenOfferSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                });
-            }
-            
+                    });
+                }
+            });
+        });
 
-            if (submitOfferBtn && offerResponseEl) {
-                submitOfferBtn.addEventListener('click', () => {
-                    const offerAmountInput = document.getElementById('conceptualOfferAmount');
-                    const offerAmount = parseFloat(offerAmountInput.value);
-
-                    offerResponseEl.textContent = '';
-                    offerResponseEl.className = 'offer-response'; // Reset class name
-
-                    if (isNaN(offerAmount) || offerAmount <= 0) {
-                        offerResponseEl.textContent = 'Please enter a valid conceptual offer amount.';
-                        offerResponseEl.classList.add('offer-rejected');
-                        return;
-                    }
-                    
-                    const currentYearCalculatedBase = calculateAndDisplayAspirationalBase(); // Recalculate for current context
-
-                    let highInterestThreshold = Math.max(30000, currentYearCalculatedBase * 2); // Example: 30k or double the base
-
-                    if (offerAmount < currentYearCalculatedBase) {
-                        offerResponseEl.textContent = `Conceptual Response for ${actualOfferYearGlobal}: An offer of ₹${offerAmount.toLocaleString('en-IN')} is below the current conceptual aspiration (₹${currentYearCalculatedBase.toLocaleString('en-IN')}). My dedication merits further consideration!`;
-                        offerResponseEl.classList.add('offer-rejected');
-                    } else if (offerAmount <= highInterestThreshold) { 
-                        offerResponseEl.textContent = `Conceptual Response for ${actualOfferYearGlobal}: An offer of ₹${offerAmount.toLocaleString('en-IN')} (Conceptual Aspiration: ₹${currentYearCalculatedBase.toLocaleString('en-IN')}) is promising! This would certainly warrant a positive discussion.`;
-                        offerResponseEl.classList.add('offer-pending');
-                    } else { 
-                         offerResponseEl.textContent = `Conceptual Response for ${actualOfferYearGlobal}: An offer of ₹${offerAmount.toLocaleString('en-IN')} (Conceptual Aspiration: ₹${currentYearCalculatedBase.toLocaleString('en-IN')}) is very compelling! This demonstrates strong value recognition and would be met with enthusiasm.`;
-                         offerResponseEl.classList.add('offer-accepted');
-                    }
-                });
-            }
+        // Loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
         });
     </script>
 </body>
